@@ -1,0 +1,14 @@
+请求地址：/api/register
+请求方法：post
+请求参数：JSON Web Token
+成功响应返回样例：
+{
+    "code": 0,
+    "avatar": "https://org.example.com/example.jpg"
+}
+失败响应返回样例：
+{
+    "code": 1
+}
+
+//avatar是头像的url

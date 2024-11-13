@@ -40,7 +40,7 @@ export default {
     fetchUserAvatar() {
       // 从 localStorage 获取 Token
       const token = localStorage.getItem("token");
-      this.axios
+      this.$axios
         .get("/api/home", {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,0 +1,13 @@
+请求地址：/api/register
+请求方法：post
+请求参数：用户名username，密码password
+成功响应返回样例：
+{
+    "code": 0,
+    "message": "注册成功！",
+}
+失败响应返回样例：
+{
+    "code": 1,
+    "message": "注册失败！"
+}
