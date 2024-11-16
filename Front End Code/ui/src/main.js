@@ -12,6 +12,8 @@ import './mock/personalhome.js'
 import './mock/update.js'
 import './mock/post0.js'
 import './mock/post1.js'
+import './mock/founditems.js'
+import './mock/lostitems.js'
 
 //引入Element-ui
 import ElementUI from 'element-ui'
