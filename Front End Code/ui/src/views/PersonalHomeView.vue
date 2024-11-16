@@ -72,8 +72,13 @@ export default {
       isPasswordChanged: false,
     };
   },
+  mounted() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      this.$router.push({ path: "/login" });
+    }
+  },
   created() {
-    // 组件创建时获取用户数据
     this.fetchUserData();
   },
   methods: {
@@ -193,7 +198,7 @@ export default {
   width: 100%;
   height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+  background: linear-gradient(135deg, #530071, #ffffff);
 }
 
 /* 标题样式 */
