@@ -1,7 +1,12 @@
 <template>
   <div class="post-lost-item">
-    <h1 class="form-title">发布帖子</h1>
+    <el-button
+      icon="el-icon-arrow-left"
+      class="back-button"
+      @click="goBack"
+    ></el-button>
     <img :src="userAvatar" alt="头像" class="avatar" @click="goToProfile" />
+    <h1 class="form-title">发布帖子</h1>
     <el-form
       :model="postData"
       ref="form"
@@ -101,11 +106,19 @@ export default {
       },
     };
   },
+  mounted() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      this.$router.push({ path: "/login" });
+    }
+  },
   created() {
-    // 组件创建时获取用户头像
     this.fetchUserAvatar();
   },
   methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
     goToProfile() {
       // 路由跳转至个人主页
       this.$router.push("/personalhome");
@@ -199,16 +212,14 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #6a82fb, #f2c1cb);
+  background: linear-gradient(135deg, #ff34c9, #ffffff);
 }
 
-/* 标题样式 */
-.form-title {
-  text-align: center;
-  font-size: 35px;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 20px;
+/* 返回按钮样式 */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 /* 头像样式 */
@@ -226,6 +237,15 @@ export default {
 /* 头像特效 */
 .avatar:hover {
   transform: scale(1.1);
+}
+
+/* 标题样式 */
+.form-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 /* 表单样式 */
