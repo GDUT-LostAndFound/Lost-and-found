@@ -32,6 +32,11 @@ const routes = [
     path: '/post',
     name: 'post',
     component: () => import('../views/PostView.vue')
+  },
+  {
+    path: '/recover',
+    name: 'recover',
+    component: () => import('../views/RecoverView.vue')
   }
 ]
 
