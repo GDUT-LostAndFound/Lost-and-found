@@ -118,7 +118,7 @@ export default {
 <style scoped>
 /* 背景样式 */
 .login-background {
-  background: linear-gradient(to right, #54aefe, #9ef8fd);
+  background: linear-gradient(135deg, #35a1ff, #ffffff);
   height: 100vh;
   display: flex;
   flex-direction: column;
