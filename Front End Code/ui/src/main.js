@@ -10,6 +10,8 @@ import './mock/register.js'
 import './mock/home.js'
 import './mock/personalhome.js'
 import './mock/update.js'
+import './mock/post0.js'
+import './mock/post1.js'
 
 //引入Element-ui
 import ElementUI from 'element-ui'

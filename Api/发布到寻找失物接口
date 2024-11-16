@@ -1,0 +1,14 @@
+请求地址：/api/post1
+请求方法：post
+请求参数：JSON Web Token，发帖信息postData
+发帖信息postData包括：图片image，姓名name，电话phone，物品描述description，丢失地址location
+成功响应返回样例：
+{
+    "code": 0,
+    "message": "发送成功！",
+}
+失败响应返回样例：
+{
+    "code": 1,
+    "message": "发送失败！",
+}
