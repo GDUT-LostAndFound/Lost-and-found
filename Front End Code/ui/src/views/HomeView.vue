@@ -20,6 +20,12 @@ export default {
       userAvatar: "",
     };
   },
+  mounted() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      this.$router.push({ path: "/login" });
+    }
+  },
   created() {
     this.fetchUserAvatar();
   },
@@ -57,7 +63,7 @@ export default {
 <style scoped>
 /* 背景样式 */
 .home-view {
-  background: linear-gradient(to bottom right, #5f67f1, #dcddf5);
+  background: linear-gradient(135deg, #c042ff, #ffffff);
   height: 100vh;
   display: flex;
   flex-direction: column;
