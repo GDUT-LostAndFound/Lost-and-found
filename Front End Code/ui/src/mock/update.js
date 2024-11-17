@@ -4,4 +4,4 @@ Mock.mock('/api/update', 'put', () => {
         "code": 0,
         "message": "更新成功",
     };
-});
+})
