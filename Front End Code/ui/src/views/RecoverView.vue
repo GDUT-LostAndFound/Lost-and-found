@@ -114,17 +114,24 @@ export default {
         });
     },
     loadItems() {
+      const token = localStorage.getItem("token");
       // 根据当前类别选择API端点
       const endpoint =
         this.category === "lost" ? "/api/lostitems" : "/api/founditems";
       // 请求物品数据
-      this.$axios.get(endpoint).then((response) => {
-        this.items = response.data.data;
-        // 更新总物品数量
-        this.totalItems = this.items.length;
-        // 更新当前展示的物品
-        this.updateDisplayedItems();
-      });
+      this.$axios
+        .get(endpoint, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          this.items = response.data.data;
+          // 更新总物品数量
+          this.totalItems = this.items.length;
+          // 更新当前展示的物品
+          this.updateDisplayedItems();
+        });
     },
     updateDisplayedItems() {
       // 计算当前页物品的起始和结束索引
