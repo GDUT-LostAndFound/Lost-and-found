@@ -1,0 +1,22 @@
+请求地址：/api/founditems
+请求方法：get
+请求参数：JSON Web Token
+响应返回样例：
+{
+    "data": [
+      {
+        "image": "https://tse2-mm.cn.bing.net/th/id/OIP-C.L4uv3jEJsduTWgZgFVFvvAHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+        "name": "张三",
+        "phone": "1234567910",
+        "description": "iPhone 12",
+        "location": "教三"
+      },
+      {
+        "image": "https://cbu01.alicdn.com/img/ibank/2019/001/272/12309272100_171072331.jpg",
+        "name": "张三",
+        "phone": "1234567910",
+        "description": "黑色雨伞",
+        "location": "教三"
+      },
+    ]
+}
