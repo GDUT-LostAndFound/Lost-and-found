@@ -1,14 +1,11 @@
 package com.example.interceptor;
 
-
-import com.example.exception.TokenException;
 import com.example.model.HostHolder;
 import com.example.util.JwtUtil;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -22,18 +19,13 @@ import java.util.Objects;
  */
 @Component
 public class UserInterceptor implements HandlerInterceptor {
-
     @Override
     public boolean preHandle(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) {
-        String token = request.getHeader("token");
-        if (token != null) {
-            //判断token是否无效（乱写的）
-            Integer id = JwtUtil.parseJWT(token);
-            HostHolder.setUserId(id);
-            return true;
-        }
-
-        throw new TokenException("您还未登录!");
+        String token = request.getHeader("Authorization");
+        //判断token是否无效（乱写的）
+        Integer id = JwtUtil.parseJWT(token.substring(7));
+        HostHolder.setUserId(id);
+        return true;
     }
 
     //移除用户信息

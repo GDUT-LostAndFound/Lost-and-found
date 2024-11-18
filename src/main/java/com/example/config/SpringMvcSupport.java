@@ -15,24 +15,12 @@ public class SpringMvcSupport
     @Autowired
     UserInterceptor loginInterceptor;
 
-    //设置静态资源访问过滤，当前类需要设置为配置类，并被扫描加载
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //当访问/pages/????时候，从/pages目录下查找内容
-        registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
-        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-        registry.addResourceHandler("/plugins/**").addResourceLocations("/plugins/");
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-
-        ;
-    }
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //忽略的拦截名单
         String[] urls = {
-
+               "/api/login",
+               "/api/register"
         };
         //自定义用户拦截器注册，弃用
         registry.addInterceptor(loginInterceptor)
