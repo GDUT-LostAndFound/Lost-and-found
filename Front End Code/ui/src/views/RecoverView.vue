@@ -86,7 +86,7 @@ export default {
   mounted() {
     const token = localStorage.getItem("token");
     if (!token) {
-      this.$router.push({ path: "/login" });
+      this.$router.push("/login");
     } else {
       this.fetchUserAvatar();
       // 加载物品
@@ -98,7 +98,7 @@ export default {
       this.$router.go(-1);
     },
     goToProfile() {
-      this.$router.push({ path: "/personalhome" });
+      this.$router.push("/personalhome");
     },
     fetchUserAvatar() {
       const token = localStorage.getItem("token");
