@@ -129,21 +129,13 @@ export default {
       }
       // 存储需要更新的字段
       const updates = {};
-      if (this.isUsernameChanged) {
-        updates.username = this.newUsername;
-      }
-      if (this.isPhoneChanged) {
-        updates.phone = this.newPhone;
-      }
-      if (this.isPasswordChanged) {
-        updates.password = this.newPassword;
-      }
+      updates.username = this.newUsername;
+      updates.phone = this.newPhone;
+      updates.password = this.newPassword;
       // 创建FormData对象来处理文件上传
       const formData = new FormData();
-      if (this.avatarFile) {
-        // 添加头像文件
-        formData.append("avatar", this.avatarFile);
-      }
+      // 添加头像文件
+      formData.append("avatar", this.avatarFile);
       // 将需要更新的字段添加到FormData对象中
       Object.keys(updates).forEach((key) => {
         formData.append(key, updates[key]);
