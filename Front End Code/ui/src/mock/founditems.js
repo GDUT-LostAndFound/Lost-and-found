@@ -43,7 +43,7 @@ Mock.mock('/api/founditems', 'get', () => {
         "phone": "1234567910",
         "description": "银色钥匙",
         "location": "教三"
-      },
+      }
     ]
   }
 })
