@@ -71,7 +71,7 @@ Mock.mock('/api/lostitems', 'get', () => {
         "phone": "1234567910",
         "description": "银框眼镜",
         "location": "教三"
-      },
+      }
     ]
   }
 })
