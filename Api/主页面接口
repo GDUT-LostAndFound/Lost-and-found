@@ -1,5 +1,5 @@
 请求地址：/api/home
-请求方法：post
+请求方法：get
 请求参数：JSON Web Token
 响应返回样例：
 {
