@@ -1,6 +1,7 @@
 请求地址：/api/update
 请求方法：put
-请求参数：JSON Web Token
+请求参数：JSON Web Token，更新信息formData
+更新信息formData包括：头像avatar，用户名username，电话phone，密码password
 成功响应返回样例：
 {
     "code": 0,
