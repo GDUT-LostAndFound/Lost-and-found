@@ -96,6 +96,19 @@ export default {
           this.newUsername = this.user.username;
           this.newPhone = this.user.phone;
           this.newPassword = this.user.password;
+          this.loadAvatarFile(this.user.avatar);
+        });
+    },
+    // 根据头像的 URL 加载文件
+    loadAvatarFile(avatarUrl) {
+      this.$axios
+        // 指定响应类型为 blob
+        .get(avatarUrl, { responseType: "blob" })
+        .then((response) => {
+          // 创建一个文件对象
+          this.avatarFile = new File([response.data], "avatar.jpg", {
+            type: response.headers["content-type"],
+          });
         });
     },
     // 处理头像文件选择事件
@@ -115,6 +128,7 @@ export default {
     beforeAvatarUpload(file) {
       const isImage = file.type.startsWith("image/");
       if (!isImage) {
+        this.avatarFile = null;
         this.$message.error("上传头像只能是图片!");
       }
       return isImage;
@@ -123,8 +137,13 @@ export default {
     confirmChanges() {
       const token = localStorage.getItem("token");
       // 验证输入不能为空
-      if (!this.newUsername || !this.newPhone || !this.newPassword) {
-        this.$message.error("用户名、手机号和密码不能为空！");
+      if (
+        !this.avatarFile ||
+        !this.newUsername ||
+        !this.newPhone ||
+        !this.newPassword
+      ) {
+        this.$message.error("头像、用户名、手机号和密码不能为空！");
         return;
       }
       // 存储需要更新的字段
